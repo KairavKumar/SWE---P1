@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Scholarly Admin | Administrative Clearance</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "outline": "#767683",
+                "on-tertiary-fixed": "#001945",
+                "on-background": "#191c1e",
+                "tertiary-fixed": "#d9e2ff",
+                "surface-tint": "#4c56af",
+                "on-secondary-fixed": "#00105c",
+                "secondary-container": "#8596ff",
+                "on-primary-fixed": "#000767",
+                "primary-container": "#1a237e",
+                "primary": "#000666",
+                "on-secondary-fixed-variant": "#293ca0",
+                "surface-container-high": "#e6e8eb",
+                "secondary-fixed-dim": "#bac3ff",
+                "background": "#f7f9fc",
+                "surface-container": "#eceef1",
+                "on-secondary": "#ffffff",
+                "secondary": "#4355b9",
+                "tertiary": "#001944",
+                "surface-variant": "#e0e3e6",
+                "surface-container-lowest": "#ffffff",
+                "on-tertiary": "#ffffff",
+                "tertiary-container": "#002c6e",
+                "surface": "#f7f9fc",
+                "outline-variant": "#c6c5d4",
+                "on-primary": "#ffffff",
+                "inverse-on-surface": "#eff1f4",
+                "inverse-primary": "#bdc2ff",
+                "surface-bright": "#f7f9fc",
+                "inverse-surface": "#2d3133",
+                "on-primary-fixed-variant": "#343d96",
+                "on-surface": "#191c1e",
+                "on-tertiary-fixed-variant": "#00429c",
+                "tertiary-fixed-dim": "#b0c6ff",
+                "on-tertiary-container": "#6b95f3",
+                "primary-fixed": "#e0e0ff",
+                "surface-container-low": "#f2f4f7",
+                "secondary-fixed": "#dee0ff",
+                "on-secondary-container": "#11278e",
+                "error-container": "#ffdad6",
+                "on-primary-container": "#8690ee",
+                "surface-dim": "#d8dadd",
+                "error": "#ba1a1a",
+                "primary-fixed-dim": "#bdc2ff",
+                "on-error-container": "#93000a",
+                "on-error": "#ffffff",
+                "surface-container-highest": "#e0e3e6",
+                "on-surface-variant": "#454652"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "xl": "48px",
+                "gutter": "24px",
+                "xs": "8px",
+                "md": "24px",
+                "sm": "16px",
+                "lg": "32px",
+                "container-max": "1280px",
+                "base": "4px"
+            },
+            "fontFamily": {
+                "h1": ["Inter"], "h3": ["Inter"], "label-md": ["Inter"], "label-sm": ["Inter"],
+                "body-md": ["Inter"], "h2": ["Inter"], "body-sm": ["Inter"], "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "h2": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fc; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full h-16 px-6 sticky top-0 bg-white dark:bg-slate-900 text-[#1a237e] dark:text-blue-400 font-inter text-sm font-medium shadow-sm dark:shadow-none border-b border-slate-200 dark:border-slate-800 z-40">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tight text-[#1a237e] dark:text-white">Scholarly Admin</span>
+<div class="hidden md:flex items-center space-x-6">
+<a class="text-[#1a237e] dark:text-blue-400 font-bold border-b-2 border-[#1a237e] py-5" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors py-5" href="#">Students</a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors py-5" href="#">Approvals</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="Search records..." type="text"/>
+</div>
+<button class="p-2 hover:bg-slate-50 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-50 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden bg-slate-200 border border-slate-300">
+<img alt="User Profile Avatar" data-alt="professional headshot of a university administrator in a clean office setting, soft lighting, corporate style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSIvSqB8YHzlmdnggrglir4fnqBJUsshOpLqBWSfoqu1lVHBQVJQETw-hHHKEVmAvmlw1BZZpGhEt4KzLkoaZCyKArrzCEul7diRgCSB1hRUPSnDNoi5Qt6wglVI19LLt3bQ1qOUiKacsIvN3aEy9uyLi6sZ-xoNju4pguWBiSUGaFvGjxlfQN8QijHn0zTMfu0oKZCyhqESloM_OeDVpaOPxJj_6k3EMl_nGLTx-Bmz3svEGiK6QxZ2E45f3R8DS6xYJ0gbCgmdF6"/>
+</div>
+<button class="bg-primary text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-primary/90 transition-colors">Support</button>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col h-[calc(100vh-64px)] w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 sticky top-16 py-6 overflow-y-auto">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+</div>
+<div>
+<h2 class="text-lg font-black text-[#1a237e] dark:text-blue-200 leading-none">Registry Portal</h2>
+<p class="text-[10px] uppercase tracking-wider text-slate-500 font-bold mt-1">Academic Management</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1 px-3">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary" data-icon="school">school</span>
+<span class="font-inter text-sm antialiased">Academic</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-slate-50 dark:bg-slate-800/50 text-[#1a237e] dark:text-blue-300 font-semibold border-r-4 border-[#1a237e] rounded-l-lg transition-all group" href="#">
+<span class="material-symbols-outlined" data-icon="domain">domain</span>
+<span class="font-inter text-sm antialiased">Hostel</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span class="font-inter text-sm antialiased">Admin</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary" data-icon="verified_user">verified_user</span>
+<span class="font-inter text-sm antialiased">Security</span>
+</a>
+</nav>
+<div class="mt-auto px-3">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-error/10 hover:text-error transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-inter text-sm antialiased">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-8 overflow-hidden">
+<div class="max-w-container-max mx-auto">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div>
+<h1 class="font-h1 text-h1 text-on-background">Clearance &amp; No Dues</h1>
+<p class="font-body-md text-body-md text-outline">Manage institutional exit clearances and department sign-offs.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="bg-white border border-secondary text-secondary font-semibold py-2 px-6 rounded-lg hover:bg-slate-50 transition-all shadow-sm">
+                            Generate Report
+                        </button>
+<button class="bg-primary text-white font-semibold py-2 px-6 rounded-lg hover:shadow-lg transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span>
+                            Request Clearance
+                        </button>
+</div>
+</div>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Left Column: Pending Approvals Queue (Admin View) -->
+<div class="col-span-12 lg:col-span-8 space-y-gutter">
+<section class="bg-white border border-surface-variant rounded-xl p-6">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-h3 text-h3 text-on-background flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">pending_actions</span>
+                                    Pending Approvals Queue
+                                </h3>
+<span class="bg-primary-container/10 text-primary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-tighter">12 Requests</span>
+</div>
+<div class="space-y-4">
+<!-- Request Item 1 -->
+<div class="group border border-surface-variant rounded-lg p-4 hover:border-primary-container transition-colors bg-surface-container-lowest">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-full overflow-hidden bg-slate-100 border border-slate-200">
+<img alt="Student" data-alt="portrait of a male student wearing a sweater in a library, warm professional lighting, academic setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy33xrDolnxWlAZc5FLXyvnVAsykYTQCKEGlUM__OFw6Y4Fcj93-osBYsvgtT77Bb_Ureu0oI_Og5FnkxYum0fkme_7za5zoLZra21YdkGPXp1zGdTJV860WYT9PUsFNbmmCc607MCP_CXfVtty1XJkEOLgJpLLhYOcHYFL3KL0q-4lYucDdsWI5jSOh-8EdAf4upm1s-s7srGg06sEEkP_-4hkYLznTw0zp0VftoQs7bfvzwdULGtkV506NBZ9sqjD3kpu7HKQ1Lh"/>
+</div>
+<div>
+<h4 class="font-bold text-on-background leading-none">Arjun Mehta</h4>
+<p class="text-xs text-outline mt-1">ID: #SCH-2023-042 • Computer Science</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-secondary-fixed text-on-secondary-container px-3 py-1 rounded-full text-xs font-medium">Hostel Exit</span>
+<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full text-xs font-medium">Final Semester</span>
+</div>
+<div class="flex gap-2">
+<button class="p-2 text-error hover:bg-error/10 rounded transition-colors"><span class="material-symbols-outlined">block</span></button>
+<button class="bg-primary-container text-white px-4 py-2 rounded font-semibold text-sm hover:opacity-90">Review</button>
+</div>
+</div>
+<!-- Mini Progress Bar -->
+<div class="mt-4 pt-4 border-t border-surface-variant flex items-center gap-4">
+<div class="flex-1 bg-surface-container h-2 rounded-full overflow-hidden flex">
+<div class="bg-green-500 w-1/3 h-full"></div>
+<div class="bg-amber-400 w-1/3 h-full border-x border-white"></div>
+<div class="bg-slate-200 w-1/3 h-full"></div>
+</div>
+<span class="text-[10px] font-bold text-outline uppercase tracking-wider">Stage 2 of 3</span>
+</div>
+</div>
+<!-- Request Item 2 -->
+<div class="group border border-surface-variant rounded-lg p-4 hover:border-primary-container transition-colors bg-surface-container-lowest opacity-80">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-full overflow-hidden bg-slate-100 border border-slate-200">
+<img alt="Student" data-alt="portrait of a female student in a business formal attire, professional academic background, bright natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgNQwwwOOrUi7Oq98RRu5IRDfsrL4TI2KudaD7ulr7WeEuN8QTX6Il3-j15rGJfzpZ1AMdKzCMkWoxFraiBVwImJFNnOgdKHWkCxyhN5a7V0-Bddb9zKhGhLs9bhrcRqiljljd-UL5OXsrjJv0AXzRgDEg9K1dGazBpDSO-78JluYhdxlCFjK7u-UGAqR9Pu4b7FWWjC3qtJOtgtCK6p-JoSmWf1yOuAUHd7ikGsjYbn9agl3-l4-QIG9iTVtY6rARKy9GJcIWscSb"/>
+</div>
+<div>
+<h4 class="font-bold text-on-background leading-none">Sara Jenkins</h4>
+<p class="text-xs text-outline mt-1">ID: #SCH-2023-118 • Law Faculty</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-secondary-fixed text-on-secondary-container px-3 py-1 rounded-full text-xs font-medium">Refund Request</span>
+</div>
+<div class="flex gap-2">
+<button class="p-2 text-error hover:bg-error/10 rounded transition-colors"><span class="material-symbols-outlined">block</span></button>
+<button class="bg-primary-container text-white px-4 py-2 rounded font-semibold text-sm hover:opacity-90">Review</button>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-surface-variant flex items-center gap-4">
+<div class="flex-1 bg-surface-container h-2 rounded-full overflow-hidden flex">
+<div class="bg-green-500 w-2/3 h-full"></div>
+<div class="bg-slate-200 w-1/3 h-full"></div>
+</div>
+<span class="text-[10px] font-bold text-outline uppercase tracking-wider">Stage 1 of 3</span>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-3 text-primary font-semibold text-sm hover:bg-slate-50 border border-dashed border-slate-300 rounded-lg">View All Queue Activity</button>
+</section>
+<!-- Approval Timeline (Bento Style) -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="bg-white border border-surface-variant rounded-xl p-6 border-t-4 border-t-primary">
+<h4 class="font-h3 text-lg text-on-background mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">assignment_turned_in</span>
+                                    Caretaker Sign-off
+                                </h4>
+<div class="space-y-6 relative before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-slate-100">
+<div class="relative pl-10">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-green-500 flex items-center justify-center text-white ring-4 ring-white">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<p class="text-sm font-bold text-on-background">Inventory Check</p>
+<p class="text-xs text-outline">Furniture and fixtures verified on May 12.</p>
+</div>
+<div class="relative pl-10">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary-container flex items-center justify-center text-white ring-4 ring-white">
+<span class="material-symbols-outlined text-[14px]">pending</span>
+</div>
+<p class="text-sm font-bold text-on-background">Key Handover</p>
+<p class="text-xs text-outline italic">Awaiting student keys submittal.</p>
+</div>
+<div class="relative pl-10 opacity-40">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-slate-300 flex items-center justify-center text-white ring-4 ring-white">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+</div>
+<p class="text-sm font-bold text-on-background">Final Room Inspection</p>
+</div>
+</div>
+</div>
+<div class="bg-[#f0f2ff] border border-primary-container/20 rounded-xl p-6">
+<h4 class="font-h3 text-lg text-[#1a237e] mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified</span>
+                                    Warden Final Approval
+                                </h4>
+<div class="flex flex-col items-center justify-center h-48 text-center px-4">
+<div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-4 shadow-sm border border-primary-container/10">
+<span class="material-symbols-outlined text-primary-container text-3xl">hourglass_empty</span>
+</div>
+<p class="text-sm font-medium text-primary mb-1">Status: Restricted</p>
+<p class="text-xs text-slate-500">Requires complete Caretaker sign-off and all dues to be cleared before activation.</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Status Indicators & Overview -->
+<div class="col-span-12 lg:col-span-4 space-y-gutter">
+<!-- Dues Status Cards -->
+<div class="bg-white border border-surface-variant rounded-xl p-6 shadow-sm">
+<h3 class="font-label-md text-label-md text-outline uppercase mb-6">Department Dues Tracking</h3>
+<div class="space-y-4">
+<!-- Library -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-green-50 border border-green-100">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-green-500/10 flex items-center justify-center text-green-700">
+<span class="material-symbols-outlined text-sm">menu_book</span>
+</div>
+<span class="text-sm font-semibold text-green-900">Library</span>
+</div>
+<span class="text-[10px] font-bold px-2 py-0.5 rounded bg-green-500 text-white uppercase tracking-wider">Cleared</span>
+</div>
+<!-- Mess -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-amber-50 border border-amber-100">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-amber-500/10 flex items-center justify-center text-amber-700">
+<span class="material-symbols-outlined text-sm">restaurant</span>
+</div>
+<span class="text-sm font-semibold text-amber-900">Mess</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-500 text-white uppercase tracking-wider">Pending</span>
+<span class="text-[10px] font-bold text-amber-700 mt-1">$45.00 due</span>
+</div>
+</div>
+<!-- Laboratory -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-green-50 border border-green-100">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-green-500/10 flex items-center justify-center text-green-700">
+<span class="material-symbols-outlined text-sm">science</span>
+</div>
+<span class="text-sm font-semibold text-green-900">Laboratory</span>
+</div>
+<span class="text-[10px] font-bold px-2 py-0.5 rounded bg-green-500 text-white uppercase tracking-wider">Cleared</span>
+</div>
+</div>
+</div>
+<!-- Info Card -->
+<div class="bg-primary text-white rounded-xl p-6 relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="font-bold mb-2">Institutional Policy</h4>
+<p class="text-xs text-primary-fixed leading-relaxed">
+                                    Final clearance is required for the release of degrees and transcripts. All physical assets must be returned to the respective department custodians.
+                                </p>
+<button class="mt-4 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white hover:underline">
+                                    Read Guidelines
+                                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Background Decoration -->
+<div class="absolute -bottom-8 -right-8 w-32 h-32 bg-primary-container/20 rounded-full blur-2xl"></div>
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl">gavel</span>
+</div>
+</div>
+<!-- Recent Activity -->
+<div class="bg-white border border-surface-variant rounded-xl p-6">
+<h3 class="font-label-md text-label-md text-outline uppercase mb-6">System Logs</h3>
+<div class="space-y-4">
+<div class="flex gap-3">
+<div class="w-1.5 h-1.5 rounded-full bg-blue-400 mt-1.5 shrink-0"></div>
+<div class="text-xs">
+<p class="text-on-surface font-semibold">Library Auto-Check complete</p>
+<p class="text-outline">2 mins ago</p>
+</div>
+</div>
+<div class="flex gap-3">
+<div class="w-1.5 h-1.5 rounded-full bg-green-400 mt-1.5 shrink-0"></div>
+<div class="text-xs">
+<p class="text-on-surface font-semibold">Warden approved 4 requests</p>
+<p class="text-outline">1 hour ago</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- FAB (Suppressed based on logic for details screen, but shown here for Dashboard intent) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 rounded-full bg-primary-container text-white shadow-2xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_comment</span>
+</button>
+<div id="screen-router" style="position: fixed; right: 16px; bottom: 16px; z-index: 9999; font-family: Inter, sans-serif;">
+    <div style="display: flex; align-items: center; gap: 8px; background: #ffffff; border: 1px solid #c6c5d4; border-radius: 10px; padding: 8px 10px; box-shadow: 0 8px 22px rgba(0,0,0,0.08);">
+        <button id="router-prev" type="button" style="border: 1px solid #c6c5d4; background: #f2f4f7; color: #1a237e; border-radius: 8px; padding: 6px 10px; cursor: pointer;">Prev</button>
+        <label for="router-select" style="font-size: 12px; color: #454652;">Screen</label>
+        <select id="router-select" style="border: 1px solid #c6c5d4; border-radius: 8px; padding: 6px 8px; color: #191c1e;">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+        </select>
+        <button id="router-next" type="button" style="border: 1px solid #c6c5d4; background: #1a237e; color: #ffffff; border-radius: 8px; padding: 6px 10px; cursor: pointer;">Next</button>
+    </div>
+</div>
+<script src="../shared/runtime-config.js"></script>
+<script src="../shared/app-shell.js"></script>
+</body></html>

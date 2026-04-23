@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Scholarly Admin - Course Feedback</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+body { font-family: 'Inter', sans-serif; background-color: #f7f9fc; }
+</style>
+</head>
+<body>
+<header class="bg-white border-b border-slate-200 shadow-sm h-16 px-6 flex items-center justify-between">
+  <span class="text-xl font-bold tracking-tight text-[#1a237e]">Scholarly Admin</span>
+  <span class="text-xs text-slate-500 uppercase tracking-wide">Course Feedback</span>
+</header>
+<main class="max-w-7xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <section class="lg:col-span-2 bg-white border border-slate-200 rounded-xl p-6" data-roles="STUDENT">
+    <h2 class="text-lg font-bold text-[#1a237e]">Submit Feedback</h2>
+    <p class="text-sm text-slate-500 mt-1">POST /submit-feedback | only enrolled students can submit.</p>
+    <form class="mt-4 grid grid-cols-1 gap-4">
+      <div>
+        <label class="text-xs font-semibold uppercase tracking-wide text-slate-500">Course</label>
+        <select class="w-full rounded-lg border-slate-300" name="courseId">
+          <option value="CS301">CS301 - DBMS</option>
+          <option value="CS202">CS202 - DSA</option>
+        </select>
+      </div>
+      <div>
+        <label class="text-xs font-semibold uppercase tracking-wide text-slate-500">Rating</label>
+        <select class="w-full rounded-lg border-slate-300" name="rating">
+          <option value="5">5 - Excellent</option>
+          <option value="4">4 - Good</option>
+          <option value="3">3 - Average</option>
+          <option value="2">2 - Poor</option>
+          <option value="1">1 - Bad</option>
+        </select>
+      </div>
+      <div>
+        <label class="text-xs font-semibold uppercase tracking-wide text-slate-500">Comments</label>
+        <textarea class="w-full rounded-lg border-slate-300" name="comments" rows="4" placeholder="Share structured feedback"></textarea>
+      </div>
+      <div class="flex justify-end">
+        <button class="px-6 py-2 bg-[#1a237e] text-white rounded-lg font-semibold" data-action="feedback-submit" type="submit">Submit Feedback</button>
+      </div>
+    </form>
+  </section>
+  <section class="bg-white border border-slate-200 rounded-xl p-6" data-roles="ADMIN">
+    <h3 class="font-bold text-[#1a237e]">Admin Summary</h3>
+    <p class="text-sm text-slate-500 mt-1">GET /admin/feedback-summary</p>
+    <div class="mt-4 space-y-3">
+      <div class="p-3 rounded-lg bg-slate-50 border border-slate-100"><p class="text-xs uppercase text-slate-500 font-semibold">CS301</p><p class="text-xl font-bold text-[#1a237e]">4.3 / 5</p></div>
+      <div class="p-3 rounded-lg bg-slate-50 border border-slate-100"><p class="text-xs uppercase text-slate-500 font-semibold">CS202</p><p class="text-xl font-bold text-[#1a237e]">4.1 / 5</p></div>
+      <button class="w-full px-4 py-3 border border-[#1a237e] text-[#1a237e] rounded-lg font-semibold" data-action="feedback-admin-view" type="button">View Feedback Summary</button>
+    </div>
+  </section>
+</main>
+<div id="screen-router" style="position: fixed; right: 16px; bottom: 16px; z-index: 9999; font-family: Inter, sans-serif;">
+  <div style="display: flex; align-items: center; gap: 8px; background: #ffffff; border: 1px solid #c6c5d4; border-radius: 10px; padding: 8px 10px; box-shadow: 0 8px 22px rgba(0,0,0,0.08);">
+    <button id="router-prev" type="button" style="border: 1px solid #c6c5d4; background: #f2f4f7; color: #1a237e; border-radius: 8px; padding: 6px 10px; cursor: pointer;">Prev</button>
+    <label for="router-select" style="font-size: 12px; color: #454652;">Screen</label>
+    <select id="router-select" style="border: 1px solid #c6c5d4; border-radius: 8px; padding: 6px 8px; color: #191c1e;"></select>
+    <button id="router-next" type="button" style="border: 1px solid #c6c5d4; background: #1a237e; color: #ffffff; border-radius: 8px; padding: 6px 10px; cursor: pointer;">Next</button>
+  </div>
+</div>
+<script src="../shared/runtime-config.js"></script>
+<script src="../shared/app-shell.js"></script>
+</body></html>

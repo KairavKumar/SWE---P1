@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Scholarly Admin - HMC Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#767683",
+                    "on-tertiary-fixed": "#001945",
+                    "on-background": "#191c1e",
+                    "tertiary-fixed": "#d9e2ff",
+                    "surface-tint": "#4c56af",
+                    "on-secondary-fixed": "#00105c",
+                    "secondary-container": "#8596ff",
+                    "on-primary-fixed": "#000767",
+                    "primary-container": "#1a237e",
+                    "primary": "#000666",
+                    "on-secondary-fixed-variant": "#293ca0",
+                    "surface-container-high": "#e6e8eb",
+                    "secondary-fixed-dim": "#bac3ff",
+                    "background": "#f7f9fc",
+                    "surface-container": "#eceef1",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#4355b9",
+                    "tertiary": "#001944",
+                    "surface-variant": "#e0e3e6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#002c6e",
+                    "surface": "#f7f9fc",
+                    "outline-variant": "#c6c5d4",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#eff1f4",
+                    "inverse-primary": "#bdc2ff",
+                    "surface-bright": "#f7f9fc",
+                    "inverse-surface": "#2d3133",
+                    "on-primary-fixed-variant": "#343d96",
+                    "on-surface": "#191c1e",
+                    "on-tertiary-fixed-variant": "#00429c",
+                    "tertiary-fixed-dim": "#b0c6ff",
+                    "on-tertiary-container": "#6b95f3",
+                    "primary-fixed": "#e0e0ff",
+                    "surface-container-low": "#f2f4f7",
+                    "secondary-fixed": "#dee0ff",
+                    "on-secondary-container": "#11278e",
+                    "error-container": "#ffdad6",
+                    "on-primary-container": "#8690ee",
+                    "surface-dim": "#d8dadd",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#bdc2ff",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#e0e3e6",
+                    "on-surface-variant": "#454652"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "48px",
+                    "gutter": "24px",
+                    "xs": "8px",
+                    "md": "24px",
+                    "sm": "16px",
+                    "lg": "32px",
+                    "container-max": "1280px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "h1": ["Inter"], "h3": ["Inter"], "label-md": ["Inter"], "label-sm": ["Inter"], "body-md": ["Inter"], "h2": ["Inter"], "body-sm": ["Inter"], "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "h2": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fc; }
+    </style>
+</head>
+<body class="text-on-background">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 border-r fixed left-0 top-0 overflow-y-auto bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 flex flex-col py-6 z-50">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="school">school</span>
+</div>
+<div>
+<h2 class="text-lg font-black text-[#1a237e] dark:text-blue-200 leading-none">Registry Portal</h2>
+<p class="text-[10px] uppercase tracking-wider text-slate-500 font-bold mt-1">Academic Management</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-all rounded-lg font-inter text-sm antialiased" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span>Academic</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-slate-50 dark:bg-slate-800/50 text-[#1a237e] dark:text-blue-300 font-semibold border-r-4 border-[#1a237e] transition-all font-inter text-sm antialiased" href="#">
+<span class="material-symbols-outlined" data-icon="domain">domain</span>
+<span>Hostel</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-all rounded-lg font-inter text-sm antialiased" href="#">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span>Admin</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-all rounded-lg font-inter text-sm antialiased" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span>Security</span>
+</a>
+</nav>
+<div class="px-3 mt-auto">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-all rounded-lg font-inter text-sm antialiased" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full h-16 px-6 sticky top-0 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none z-40">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-50 border-none rounded-lg text-sm focus:ring-2 focus:ring-[#1a237e]/20" placeholder="Search minutes, roles, or members..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-600 hover:bg-slate-50 rounded-full transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+</button>
+<button class="p-2 text-slate-600 hover:bg-slate-50 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-slate-200"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-sm font-bold text-slate-900 leading-none">Prof. Rajesh Kumar</p>
+<p class="text-[11px] text-slate-500 font-medium mt-1">HMC Warden</p>
+</div>
+<img alt="User Profile Avatar" class="w-10 h-10 rounded-full object-cover border-2 border-slate-100" data-alt="professional portrait of a senior academic male professor with graying hair and spectacles in a modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaGz0Rc5MS9O0SWDetitLfYx6GKvZXLdEJBU6sRwV_Y4RqzQFgFA8U0N2L8lpJuozhJvbklgPTb3cg2wNDLHTVJ61qhaa114hy4GXvmp4xQmUl-UvdKPWpPCgsh4PIZ-qkJNeNCtmIuWXEvVcjHqipqgDJuYszF7w6hYOCxpZGlYRR179gKhI40IReumnUXmz070z22OazRBM8hsAbdKMI-2uXxaE03FRjeueCW5oC0KsZg_fzAWJom1NrXpX-NiMIR1OglcmHLwaI"/>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-8 max-w-[1400px] mx-auto">
+<!-- Dashboard Header & Tenure Tracker -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+<div class="lg:col-span-2 flex flex-col justify-center">
+<h1 class="font-h1 text-h1 text-[#1a237e] mb-2">HMC Minutes Management</h1>
+<p class="font-body-lg text-body-lg text-slate-600">Administrative dashboard for Hostel Management Committee oversight and scholarly records.</p>
+</div>
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden">
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-label-md text-label-md text-slate-500 uppercase">Current Tenure</h3>
+<p class="font-h3 text-h3 text-primary mt-1">Mess Secretary</p>
+</div>
+<span class="bg-green-100 text-green-700 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Active</span>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-sm">
+<span class="text-slate-500">Progress</span>
+<span class="font-bold text-primary">65% Completed</span>
+</div>
+<div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+<div class="bg-[#1a237e] h-full w-[65%]"></div>
+</div>
+<div class="flex justify-between text-[12px] text-slate-500 font-medium">
+<span>Start: Aug 2023</span>
+<span>End: May 2024</span>
+</div>
+</div>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-5">
+<span class="material-symbols-outlined text-9xl" data-icon="history_edu">history_edu</span>
+</div>
+</div>
+</div>
+<!-- Bento Layout Content -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-8">
+<!-- Left Column: Form & Recent -->
+<div class="xl:col-span-8 space-y-8">
+<!-- Meeting Minutes Form -->
+<section class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+<div class="border-b border-slate-100 p-6 flex justify-between items-center bg-slate-50/50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="post_add">post_add</span>
+<h3 class="font-h3 text-h3 text-slate-900">Record Meeting Minutes</h3>
+</div>
+<span class="text-xs font-medium text-slate-400">Meeting ID: #HMC-2023-082</span>
+</div>
+<form class="p-6 grid grid-cols-1 gap-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-slate-700">Meeting Agenda</label>
+<input class="w-full rounded border-slate-200 focus:border-[#1a237e] focus:ring-[#1a237e]/20 p-3 text-sm" placeholder="e.g., Monthly Mess Quality Review" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-slate-700">Date &amp; Time</label>
+<input class="w-full rounded border-slate-200 focus:border-[#1a237e] focus:ring-[#1a237e]/20 p-3 text-sm" type="datetime-local"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-slate-700">Main Discussion Points</label>
+<textarea class="w-full rounded border-slate-200 focus:border-[#1a237e] focus:ring-[#1a237e]/20 p-3 text-sm" placeholder="Summarize the core discussion themes..." rows="4"></textarea>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-slate-700">Key Decisions &amp; Action Items</label>
+<div class="bg-slate-50 rounded-lg p-4 space-y-3">
+<div class="flex gap-2">
+<input class="flex-1 rounded border-slate-200 text-sm" placeholder="Add a decision..." type="text"/>
+<button class="bg-[#1a237e] text-white px-4 rounded text-sm font-bold" type="button">Add</button>
+</div>
+<div class="flex items-center gap-3 text-sm text-slate-600 bg-white p-2 rounded border border-slate-100">
+<span class="material-symbols-outlined text-green-500 text-sm" data-icon="check_circle">check_circle</span>
+<span>Vegetarian menu to include seasonal fruits from Monday.</span>
+</div>
+</div>
+</div>
+<div class="flex justify-end gap-3 pt-4">
+<button class="px-6 py-2 rounded font-bold text-slate-600 hover:bg-slate-50 transition-colors font-label-md text-label-md" type="button">Save Draft</button>
+<button class="px-8 py-2 bg-[#1a237e] text-white rounded font-bold hover:shadow-lg transition-all font-label-md text-label-md" type="submit">Submit for Review</button>
+</div>
+</form>
+</section>
+<!-- Pending Review List -->
+<section class="bg-white rounded-xl border border-slate-200 shadow-sm">
+<div class="p-6 border-b border-slate-100 flex justify-between items-center">
+<h3 class="font-h3 text-h3 text-slate-900">Pending Warden Review</h3>
+<button class="text-primary font-bold text-sm hover:underline">View All</button>
+</div>
+<div class="divide-y divide-slate-100">
+<!-- Review Item -->
+<div class="p-6 hover:bg-slate-50 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded bg-orange-50 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-orange-600" data-icon="pending_actions">pending_actions</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900">Infrastructure Repair Proposal</h4>
+<p class="text-sm text-slate-500 mt-1">Submitted by Civil Secretary • 2 days ago</p>
+<div class="flex gap-2 mt-2">
+<span class="bg-slate-100 text-slate-600 text-[10px] px-2 py-0.5 rounded font-bold uppercase">Priority High</span>
+<span class="bg-slate-100 text-slate-600 text-[10px] px-2 py-0.5 rounded font-bold uppercase">Budgetary</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 border border-[#1a237e] text-[#1a237e] rounded font-bold text-xs hover:bg-[#1a237e] hover:text-white transition-all">Review Details</button>
+<button class="p-2 text-slate-400 hover:text-error transition-colors">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<!-- Review Item -->
+<div class="p-6 hover:bg-slate-50 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded bg-orange-50 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-orange-600" data-icon="pending_actions">pending_actions</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900">Annual Sports Fest Initial Agenda</h4>
+<p class="text-sm text-slate-500 mt-1">Submitted by Sports Secretary • 5 hours ago</p>
+<div class="flex gap-2 mt-2">
+<span class="bg-slate-100 text-slate-600 text-[10px] px-2 py-0.5 rounded font-bold uppercase">Planning</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 border border-[#1a237e] text-[#1a237e] rounded font-bold text-xs hover:bg-[#1a237e] hover:text-white transition-all">Review Details</button>
+<button class="p-2 text-slate-400 hover:text-error transition-colors">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Announcements & Sidebar Stats -->
+<div class="xl:col-span-4 space-y-8">
+<!-- Published Announcements -->
+<section class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+<div class="p-6 border-b border-slate-100 bg-[#1a237e]">
+<h3 class="font-h3 text-h3 text-white flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+                                Announcements
+                            </h3>
+</div>
+<div class="p-4 space-y-4">
+<!-- Announcement Card -->
+<div class="p-4 rounded-lg bg-slate-50 border border-slate-100 relative group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-black text-primary bg-primary/10 px-2 py-0.5 rounded-full uppercase tracking-tighter">New</span>
+<span class="text-[10px] text-slate-400">Oct 24, 2023</span>
+</div>
+<h4 class="font-bold text-slate-900 text-sm mb-1">Hostel Wi-Fi Maintenance</h4>
+<p class="text-[13px] text-slate-600 line-clamp-2">The core switch will be undergoing maintenance tonight from 11:00 PM to 02:00 AM. Please plan accordingly.</p>
+<button class="mt-3 text-primary text-xs font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
+                                    Read Full Notice <span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<!-- Announcement Card -->
+<div class="p-4 rounded-lg bg-white border border-slate-100 relative group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] text-slate-400">Oct 21, 2023</span>
+</div>
+<h4 class="font-bold text-slate-900 text-sm mb-1">Winter Semester Registration</h4>
+<p class="text-[13px] text-slate-600 line-clamp-2">All residents must complete the semester registration by Oct 30th to avoid late fees.</p>
+<button class="mt-3 text-primary text-xs font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
+                                    Read Full Notice <span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<button class="w-full p-4 text-center text-sm font-bold text-slate-500 hover:bg-slate-50 transition-colors border-t border-slate-100">
+                            Archive History
+                        </button>
+</section>
+<!-- Quick Analytics / Roles -->
+<div class="space-y-4">
+<div class="bg-gradient-to-br from-[#1a237e] to-[#293ca0] p-6 rounded-xl text-white shadow-md relative overflow-hidden">
+<h3 class="font-bold text-lg mb-4 relative z-10">Committee Snapshot</h3>
+<div class="grid grid-cols-2 gap-4 relative z-10">
+<div>
+<p class="text-white/60 text-[10px] uppercase font-bold">Total Members</p>
+<p class="text-2xl font-black">12</p>
+</div>
+<div>
+<p class="text-white/60 text-[10px] uppercase font-bold">Meetings YTD</p>
+<p class="text-2xl font-black">28</p>
+</div>
+<div class="col-span-2 pt-2 border-t border-white/10">
+<p class="text-white/60 text-[10px] uppercase font-bold">Next Meeting</p>
+<p class="text-sm font-bold">Oct 29, 04:30 PM (Conference Hall)</p>
+</div>
+</div>
+<span class="material-symbols-outlined absolute -right-6 -top-6 text-[120px] text-white/5" data-icon="groups">groups</span>
+</div>
+<!-- Faculty Contact Card -->
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center gap-4">
+<img alt="Staff Avatar" class="w-12 h-12 rounded-full border-2 border-slate-100 object-cover" data-alt="headshot of a middle-aged female administrative director with a friendly smile and dark hair in a professional setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMCwuYBaJHcyZE-tdZXnsDCjGp0-ICcSfWbNrHCiZ2Q_AQ4gTgBWI6Jp9QhSCXF8gIUbrylHrcHVzU3G6HvTDzpqmxcTqs6acdVh16AI7uxgQnxY2Y1GLFrXC2X6HXRNLZPmWfBiVB83qTeybA73H3JfPHxVNyVViBoY3MXdzsKaLCIzxJ0NzpIP7byyKdo2OazwbZiqCTysJj-OQ7Ga0VOTEa1OgPk9HLPWK3tvt-EfcJC3UtBsFGheLsUpaSY8Eqhh8jbmi6KyaM"/>
+<div>
+<h4 class="font-bold text-slate-900 text-sm">Registrar Office</h4>
+<p class="text-xs text-slate-500">Contact for official seals &amp; logs</p>
+<a class="text-[11px] text-primary font-bold mt-1 inline-block" href="mailto:registrar@scholarly.edu">registrar@scholarly.edu</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Only on dashboard) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-[#1a237e] text-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<div id="screen-router" style="position: fixed; right: 16px; bottom: 16px; z-index: 9999; font-family: Inter, sans-serif;">
+        <div style="display: flex; align-items: center; gap: 8px; background: #ffffff; border: 1px solid #c6c5d4; border-radius: 10px; padding: 8px 10px; box-shadow: 0 8px 22px rgba(0,0,0,0.08);">
+                <button id="router-prev" type="button" style="border: 1px solid #c6c5d4; background: #f2f4f7; color: #1a237e; border-radius: 8px; padding: 6px 10px; cursor: pointer;">Prev</button>
+                <label for="router-select" style="font-size: 12px; color: #454652;">Screen</label>
+                <select id="router-select" style="border: 1px solid #c6c5d4; border-radius: 8px; padding: 6px 8px; color: #191c1e;">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                </select>
+                <button id="router-next" type="button" style="border: 1px solid #c6c5d4; background: #1a237e; color: #ffffff; border-radius: 8px; padding: 6px 10px; cursor: pointer;">Next</button>
+        </div>
+</div>
+<script src="../shared/runtime-config.js"></script>
+<script src="../shared/app-shell.js"></script>
+</body></html>
