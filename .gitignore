@@ -1,0 +1,43 @@
+# =========================
+# Python virtual environments (anywhere)
+# =========================
+env/
+venv/
+ENV/
+.venv/
+.env/
+
+# Match env folders in ANY subdirectory
+**/env/
+**/venv/
+**/ENV/
+**/.venv/
+**/.env/
+
+# =========================
+# Python cache & compiled files
+# =========================
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# =========================
+# Environment variable files
+# =========================
+.env
+.env.*
+*.env
+
+# =========================
+# IDE/editor folders
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db

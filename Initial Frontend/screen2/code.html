@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#6b95f3",
+                    "on-tertiary-fixed": "#001945",
+                    "inverse-surface": "#2d3133",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#e0e3e6",
+                    "on-surface-variant": "#454652",
+                    "surface-container-high": "#e6e8eb",
+                    "surface": "#f7f9fc",
+                    "on-primary-container": "#8690ee",
+                    "primary": "#000666",
+                    "inverse-on-surface": "#eff1f4",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#bdc2ff",
+                    "outline-variant": "#c6c5d4",
+                    "surface-variant": "#e0e3e6",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#d8dadd",
+                    "on-background": "#191c1e",
+                    "primary-fixed": "#e0e0ff",
+                    "secondary-fixed-dim": "#bac3ff",
+                    "surface-container": "#eceef1",
+                    "primary-container": "#1a237e",
+                    "error": "#ba1a1a",
+                    "secondary": "#4355b9",
+                    "surface-tint": "#4c56af",
+                    "secondary-container": "#8596ff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#191c1e",
+                    "on-secondary-fixed-variant": "#293ca0",
+                    "primary-fixed-dim": "#bdc2ff",
+                    "tertiary-fixed-dim": "#b0c6ff",
+                    "on-primary-fixed": "#000767",
+                    "on-secondary-container": "#11278e",
+                    "outline": "#767683",
+                    "on-secondary-fixed": "#00105c",
+                    "on-tertiary-fixed-variant": "#00429c",
+                    "tertiary-fixed": "#d9e2ff",
+                    "surface-container-low": "#f2f4f7",
+                    "tertiary-container": "#002c6e",
+                    "tertiary": "#001944",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed-variant": "#343d96",
+                    "secondary-fixed": "#dee0ff",
+                    "background": "#f7f9fc",
+                    "surface-bright": "#f7f9fc",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "md": "24px",
+                    "xl": "48px",
+                    "xs": "8px",
+                    "base": "4px",
+                    "sm": "16px",
+                    "lg": "32px",
+                    "container-max": "1280px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "h1": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "h2": ["Inter"],
+                    "body-md": ["Inter"],
+                    "h3": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                    "h2": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f7f9fc;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none flex justify-between items-center w-full h-16 px-6 sticky top-0 z-40">
+<div class="flex items-center gap-xs">
+<span class="text-xl font-bold tracking-tight text-[#1a237e] dark:text-white font-h3">Scholarly Admin</span>
+</div>
+<div class="flex-1 max-w-xl px-lg hidden md:block">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-lg text-body-sm focus:ring-2 focus:ring-primary-container focus:outline-none transition-all" placeholder="Search across registry..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-xs">
+<button class="p-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<button class="bg-primary-container text-white px-4 py-2 rounded-lg font-label-md hover:opacity-90 transition-opacity">
+                Support
+            </button>
+<img alt="User Profile Avatar" class="w-10 h-10 rounded-full border border-outline-variant" data-alt="Close up professional portrait of a registry administrator in a clean office setting, soft natural lighting, high resolution" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRSgDYxZvoyFk-ANtnNQXWZda9e4GZauNXUzqvUypjVOQXIFxAXFf3d7rFYLzXwtyoGptxiR2V_idMNv1J2Ims-mQDS3zCxwSqftIlJ1y_te2AjzuiXeQU_AH7o1F3pikj-5eIzBAUgdDjxL8KCD5t7BDX2zDR6zeNoNluqolX_QHRNJjNHyuJLot8hQ-f7clUlf9-3ynF7bo2i6D-ebf091ffNujY7TWdmfKmcVpNtWdeoxqNdAfzYdQZ9yvLwkilD6pJEHE23CbT"/>
+</div>
+</header>
+<div class="flex min-h-[calc(100vh-64px)]">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 border-r border-slate-200 bg-white flex flex-col py-6 sticky top-16 shrink-0">
+<div class="px-6 mb-lg">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+</div>
+<div>
+<h2 class="text-lg font-black text-[#1a237e] font-h3 leading-none">Registry Portal</h2>
+<p class="text-xs text-slate-500 font-label-sm mt-1">Academic Management</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-sm px-4 py-3 rounded-lg bg-slate-50 text-[#1a237e] font-semibold border-r-4 border-[#1a237e] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span class="font-label-md">Admin</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 rounded-lg text-slate-500 hover:bg-slate-50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-label-md">Academic</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 rounded-lg text-slate-500 hover:bg-slate-50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="domain">domain</span>
+<span class="font-label-md">Hostel</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 rounded-lg text-slate-500 hover:bg-slate-50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-label-md">Security</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<a class="flex items-center gap-sm px-4 py-3 rounded-lg text-error hover:bg-error-container transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Dashboard Content -->
+<main class="flex-1 p-lg max-w-[1400px] mx-auto overflow-x-hidden">
+<header class="mb-lg">
+<h1 class="font-h1 text-primary mb-base">Main Administrator Overview</h1>
+<p class="font-body-md text-outline">Comprehensive command center for institutional operations and system health.</p>
+</header>
+<!-- Bento Grid - Metrics -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md mb-lg">
+<!-- Metric Card 1: User Logins -->
+<div class="bg-white border border-slate-200 p-sm rounded-xl flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-blue-50 rounded-lg text-primary">
+<span class="material-symbols-outlined" data-icon="login">login</span>
+</div>
+<span class="text-green-600 bg-green-50 px-2 py-1 rounded-full text-label-sm font-bold">+12%</span>
+</div>
+<div class="mt-md">
+<span class="font-label-sm text-outline uppercase tracking-wider">User Logins (24h)</span>
+<h2 class="font-h2 text-primary mt-base">4,281</h2>
+</div>
+</div>
+<!-- Metric Card 2: System Health -->
+<div class="bg-white border border-slate-200 p-sm rounded-xl flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-emerald-50 rounded-lg text-emerald-600">
+<span class="material-symbols-outlined" data-icon="dns">dns</span>
+</div>
+<span class="text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full text-label-sm font-bold">Stable</span>
+</div>
+<div class="mt-md">
+<span class="font-label-sm text-outline uppercase tracking-wider">System Uptime</span>
+<h2 class="font-h2 text-primary mt-base">99.98%</h2>
+</div>
+</div>
+<!-- Metric Card 3: Enrolled Students -->
+<div class="bg-white border border-slate-200 p-sm rounded-xl flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-primary-fixed rounded-lg text-primary">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+</div>
+<span class="text-primary bg-primary-fixed px-2 py-1 rounded-full text-label-sm font-bold">Active</span>
+</div>
+<div class="mt-md">
+<span class="font-label-sm text-outline uppercase tracking-wider">Total Students</span>
+<h2 class="font-h2 text-primary mt-base">12,450</h2>
+</div>
+</div>
+<!-- Metric Card 4: Pending Approvals -->
+<div class="bg-white border border-slate-200 p-sm rounded-xl flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-error-container rounded-lg text-error">
+<span class="material-symbols-outlined" data-icon="pending_actions">pending_actions</span>
+</div>
+<span class="text-error bg-error-container px-2 py-1 rounded-full text-label-sm font-bold">Urgent</span>
+</div>
+<div class="mt-md">
+<span class="font-label-sm text-outline uppercase tracking-wider">Pending Certs</span>
+<h2 class="font-h2 text-primary mt-base">142</h2>
+</div>
+</div>
+</div>
+<!-- Content Row 2: Charts & Feed -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- System Health & Traffic Chart Area (Placeholder Visualization) -->
+<div class="lg:col-span-2 space-y-lg">
+<div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+<div class="p-sm border-b border-slate-100 flex justify-between items-center">
+<h3 class="font-h3 text-primary">Service Performance Metrics</h3>
+<button class="text-label-md text-primary hover:underline">View Detailed Reports</button>
+</div>
+<div class="p-lg relative h-[300px] flex items-end gap-2 justify-between">
+<!-- Simple Bar Mockup for Performance -->
+<div class="w-full bg-primary-container h-[80%] rounded-t-lg opacity-80 relative group">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-on-surface text-white text-xs p-1 rounded hidden group-hover:block">Auth</div>
+</div>
+<div class="w-full bg-secondary-container h-[95%] rounded-t-lg opacity-80 relative group">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-on-surface text-white text-xs p-1 rounded hidden group-hover:block">Registry</div>
+</div>
+<div class="w-full bg-primary-container h-[70%] rounded-t-lg opacity-80 relative group">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-on-surface text-white text-xs p-1 rounded hidden group-hover:block">Finance</div>
+</div>
+<div class="w-full bg-secondary-container h-[85%] rounded-t-lg opacity-80 relative group">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-on-surface text-white text-xs p-1 rounded hidden group-hover:block">LMS</div>
+</div>
+<div class="w-full bg-primary-container h-[60%] rounded-t-lg opacity-80 relative group">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-on-surface text-white text-xs p-1 rounded hidden group-hover:block">Library</div>
+</div>
+<div class="w-full bg-secondary-container h-[90%] rounded-t-lg opacity-80 relative group">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-on-surface text-white text-xs p-1 rounded hidden group-hover:block">Alumni</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="bg-white border border-slate-200 rounded-xl p-sm">
+<h4 class="font-h3 text-primary mb-md">Approval Workflow</h4>
+<div class="space-y-sm">
+<div class="flex items-center gap-sm p-base border border-slate-100 rounded-lg">
+<div class="w-2 h-10 bg-yellow-400 rounded-full"></div>
+<div class="flex-1">
+<p class="font-label-md text-primary">Bachelor of Engineering</p>
+<p class="text-body-sm text-outline">Batch 2024 • 48 Pending</p>
+</div>
+<button class="material-symbols-outlined text-outline hover:text-primary">arrow_forward</button>
+</div>
+<div class="flex items-center gap-sm p-base border border-slate-100 rounded-lg">
+<div class="w-2 h-10 bg-blue-400 rounded-full"></div>
+<div class="flex-1">
+<p class="font-label-md text-primary">Medical Science Diplomas</p>
+<p class="text-body-sm text-outline">Special Session • 22 Pending</p>
+</div>
+<button class="material-symbols-outlined text-outline hover:text-primary">arrow_forward</button>
+</div>
+</div>
+</div>
+<div class="bg-white border border-slate-200 rounded-xl p-sm relative overflow-hidden">
+<img alt="Digital Data Visualization" class="absolute inset-0 w-full h-full object-cover opacity-10" data-alt="Abstract digital network visualization with blue lines and dots on a clean white background, high-tech professional aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdkNrrlqmfkkV8xP3f0zwX_lI7hxiqBjiz9mDcQHHWNiv559RGEJudlm0gj3YGjyu05gOP57YBrdg3HpEiotvZaH24YQi36grrCdhO-C27n4rBbjTEc6_XyullznLmflDdCXFu092EJQmRmbOSTyp7I4CLDXLlE-A7PCJXBff-Q_PRh9iOSmWpafmvNJCoIvNPHFH1VnmXCqbOKLlQYHpyan3zUxBXGQmpxCyISOqb18lZkwsQ9O9RRNFlnzb_BIS9gsMzm6G_chBx"/>
+<h4 class="font-h3 text-primary mb-md relative z-10">Database Status</h4>
+<div class="relative z-10">
+<div class="flex justify-between items-center mb-xs">
+<span class="text-body-sm">Primary Storage</span>
+<span class="text-label-sm font-bold">78%</span>
+</div>
+<div class="w-full h-2 bg-slate-100 rounded-full mb-md overflow-hidden">
+<div class="h-full bg-primary-container w-[78%]"></div>
+</div>
+<div class="flex justify-between items-center mb-xs">
+<span class="text-body-sm">Backup Node</span>
+<span class="text-label-sm font-bold">42%</span>
+</div>
+<div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[42%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- System Activity Feed -->
+<div class="bg-white border border-slate-200 rounded-xl flex flex-col h-full shadow-sm">
+<div class="p-sm border-b border-slate-100 flex justify-between items-center">
+<h3 class="font-h3 text-primary">System Activity</h3>
+<span class="material-symbols-outlined text-outline">history</span>
+</div>
+<div class="flex-1 overflow-y-auto p-sm space-y-md">
+<!-- Activity Item 1 -->
+<div class="flex gap-sm">
+<div class="mt-1">
+<div class="w-8 h-8 rounded-full bg-blue-50 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+</div>
+<div>
+<p class="text-body-sm"><span class="font-bold text-primary">Admin Jane D.</span> approved 24 degree certificates for Department of History.</p>
+<p class="text-xs text-outline mt-1">2 minutes ago</p>
+</div>
+</div>
+<!-- Activity Item 2 -->
+<div class="flex gap-sm">
+<div class="mt-1">
+<div class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">shield</span>
+</div>
+</div>
+<div>
+<p class="text-body-sm"><span class="font-bold text-primary">Security System</span> successfully synchronized backup server at Zone 2.</p>
+<p class="text-xs text-outline mt-1">15 minutes ago</p>
+</div>
+</div>
+<!-- Activity Item 3 -->
+<div class="flex gap-sm">
+<div class="mt-1">
+<div class="w-8 h-8 rounded-full bg-red-50 text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+</div>
+</div>
+<div>
+<p class="text-body-sm"><span class="font-bold text-primary">Multiple Failed Logins</span> detected from IP 192.168.1.104. Automated lockout applied.</p>
+<p class="text-xs text-outline mt-1">44 minutes ago</p>
+</div>
+</div>
+<!-- Activity Item 4 -->
+<div class="flex gap-sm">
+<div class="mt-1">
+<div class="w-8 h-8 rounded-full bg-slate-50 text-slate-500 flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+</div>
+</div>
+<div>
+<p class="text-body-sm"><span class="font-bold text-primary">System Update</span>: Registry Module v4.2.0 deployed by Infrastructure Team.</p>
+<p class="text-xs text-outline mt-1">2 hours ago</p>
+</div>
+</div>
+<!-- Activity Item 5 -->
+<div class="flex gap-sm">
+<div class="mt-1">
+<div class="w-8 h-8 rounded-full bg-blue-50 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+</div>
+</div>
+<div>
+<p class="text-body-sm"><span class="font-bold text-primary">Registrar Office</span> added 120 new freshmen records to the 2024 Fall cohort.</p>
+<p class="text-xs text-outline mt-1">5 hours ago</p>
+</div>
+</div>
+</div>
+<div class="p-sm bg-slate-50 border-t border-slate-100">
+<button class="w-full text-center text-label-md text-primary font-bold hover:opacity-80">Download Audit Logs</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<div id="screen-router" style="position: fixed; right: 16px; bottom: 16px; z-index: 9999; font-family: Inter, sans-serif;">
+        <div style="display: flex; align-items: center; gap: 8px; background: #ffffff; border: 1px solid #c6c5d4; border-radius: 10px; padding: 8px 10px; box-shadow: 0 8px 22px rgba(0,0,0,0.08);">
+                <button id="router-prev" type="button" style="border: 1px solid #c6c5d4; background: #f2f4f7; color: #1a237e; border-radius: 8px; padding: 6px 10px; cursor: pointer;">Prev</button>
+                <label for="router-select" style="font-size: 12px; color: #454652;">Screen</label>
+                <select id="router-select" style="border: 1px solid #c6c5d4; border-radius: 8px; padding: 6px 8px; color: #191c1e;">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                </select>
+                <button id="router-next" type="button" style="border: 1px solid #c6c5d4; background: #1a237e; color: #ffffff; border-radius: 8px; padding: 6px 10px; cursor: pointer;">Next</button>
+        </div>
+</div>
+<script src="../shared/runtime-config.js"></script>
+<script src="../shared/app-shell.js"></script>
+</body></html>
