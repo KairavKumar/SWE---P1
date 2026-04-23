@@ -1,0 +1,86 @@
+/college-erp-portal
+├── docker-compose.yml          # Orchestrates the frontend, backend, and MySQL database [cite: 212]
+├── README.md                   # Project documentation and setup instructions
+├── .gitignore                  # Ignores node_modules, .env, and build artifacts
+│
+├── /backend                    # Node.js & Express API 
+│   ├── package.json
+│   ├── Dockerfile              # Backend containerization [cite: 212]
+│   ├── .env                    # Environment variables (DB credentials, JWT secrets)
+│   ├── /src
+│   │   ├── server.js           # Entry point for the Node server
+│   │   ├── app.js              # Express app initialization and global middleware
+│   │   │
+│   │   ├── /config             # Infrastructure configurations
+│   │   │   ├── database.js     # MySQL connection pooling and transaction setup [cite: 199]
+│   │   │   └── ldap.js         # OpenLDAP integration setup [cite: 158]
+│   │   │
+│   │   ├── /middleware         # Global request interceptors
+│   │   │   ├── authenticate.js # JWT-based session validation [cite: 159]
+│   │   │   ├── authorize.js    # Strict Role-Based Access Control (RBAC) [cite: 194]
+│   │   │   └── auditLogger.js  # Encrypted tracking of sensitive data changes [cite: 161]
+│   │   │
+│   │   ├── /modules            # Domain-driven business logic 
+│   │   │   ├── /iam            # Identity & Access Management (Module 1) [cite: 156]
+│   │   │   │   ├── iam.routes.js
+│   │   │   │   ├── iam.controller.js
+│   │   │   │   └── iam.service.js
+│   │   │   │
+│   │   │   ├── /academic       # Academic Management Engine (Module 2) [cite: 162]
+│   │   │   │   ├── enrollment.service.js   # Registration logic [cite: 165]
+│   │   │   │   ├── grading.service.js      # Faculty grade submissions [cite: 170]
+│   │   │   │   └── attendance.service.js
+│   │   │   │
+│   │   │   ├── /admin          # Curriculum Management [cite: 173]
+│   │   │   │   ├── catalog.service.js      # Master course catalog config [cite: 173]
+│   │   │   │   └── department.service.js
+│   │   │   │
+│   │   │   ├── /hostel         # Hostel & Welfare Services (Module 3) [cite: 175]
+│   │   │   │   ├── leave.service.js        # Automated workflows for leave [cite: 177]
+│   │   │   │   ├── complaints.service.js   # Facility maintenance tracking [cite: 178]
+│   │   │   │   └── hmc.service.js
+│   │   │   │
+│   │   │   ├── /communication  # Communication & Feedback (Module 4) [cite: 180]
+│   │   │   │   ├── messaging.service.js    # Unified announcements [cite: 181]
+│   │   │   │   └── feedback.service.js     # Student-led evaluations [cite: 182]
+│   │   │   │
+│   │   │   └── /documents      # Document Automation
+│   │   │       └── generator.service.js    # PDF transcript and certificate engine [cite: 174]
+│   │   │
+│   │   └── /utils              # Shared backend helpers
+│   │       ├── hash.js         # Bcrypt helpers [cite: 193]
+│   │       ├── pdfMaker.js     # PDF generation utilities
+│   │       └── validators.js   # Server-side regex and bulk CSV validation [cite: 259]
+│
+└── /frontend                   # React-based interface (PWA) 
+    ├── package.json
+    ├── Dockerfile              # Frontend containerization [cite: 212]
+    ├── tailwind.config.js      # CSS Flexbox/Grid configuration [cite: 256]
+    ├── vite.config.js          # Build tool configuration (if using Vite)
+    ├── /public                 # Static assets (manifest.json, logos)
+    └── /src
+        ├── main.jsx            # React DOM render
+        ├── App.jsx             # Main routing component
+        │
+        ├── /assets             # Images, global stylesheets
+        │
+        ├── /components         # Reusable UI widgets [cite: 256]
+        │   ├── /common         # Buttons, Inputs, Modals, Navbar
+        │   ├── /student        # Specialized student components (e.g., Progress Trackers) [cite: 256]
+        │   ├── /faculty        # Specialized faculty components (e.g., Drag-and-Drop Zones) [cite: 256]
+        │   └── /admin          # Specialized admin components (e.g., Data Tables)
+        │
+        ├── /context            # Global React state (Auth Context, Theme Context)
+        │
+        ├── /hooks              # Custom React hooks (e.g., useAuth, useFetch)
+        │
+        ├── /pages              # Action-Oriented Dashboards & Views [cite: 256]
+        │   ├── /auth           # Login, Password Reset
+        │   ├── /student        # Student Portal, Enrollment, Requests [cite: 164]
+        │   ├── /faculty        # Instructional Tools, Grading, Analytics [cite: 169]
+        │   ├── /admin          # Curriculum Admin, Document Workflows
+        │   └── /hostel         # Resident Lifecycle, Complaints [cite: 177, 178]
+        │
+        ├── /services           # API client functions (Axios/Fetch calls connecting to backend)
+        │
+        └── /utils              # Frontend helpers (date formatting, local validation)
